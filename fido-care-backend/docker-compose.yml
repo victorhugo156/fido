@@ -1,0 +1,10 @@
+version: '3'
+services:
+  fide-care-pg:
+    image: bitnami/postgresql
+    environment:
+      POSTGRESQL_USERNAME: fido
+      POSTGRESQL_PASSWORD: fido
+      POSTGRESQL_DATABASE: fido-backend
+    ports:
+      - 5432:5432

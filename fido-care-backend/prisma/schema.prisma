@@ -1,0 +1,155 @@
+
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                String   @id @default(uuid())
+  email             String   @unique
+  name              String
+  password_hash     String
+  photo             String?
+  roles             Role[] @default([PET_OWNER])
+  oneSignalPlayerId String?
+  address           String?
+  latitude          Float?
+  longitude         Float?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  pets     Pet[]
+  bookings Booking[]
+
+  payments Payment[]
+
+  @@map("users")
+}
+
+enum Role {
+  PET_OWNER
+  PET_SITTER
+}
+
+model PetSitter {
+  id           String         @id @default(uuid())
+  name         String
+  email        String         @unique
+  bio          String
+  profilePhoto String?
+  coverPhoto   String?
+  address      String?
+  latitude     Float?
+  longitude    Float?
+  hourlyRate   Int
+  services     Service[]
+  availability Availability[]
+  password     String
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
+
+  payments Payment[]
+
+  @@map("pet_sitters")
+}
+
+enum Service {
+  DOG_WALKING
+  PET_BOARDING
+  PET_GROOMING
+  PET_TRAINING
+  HOME_VISIT
+}
+
+enum Availability {
+  MORNING
+  AFTERNOON
+  EVENING
+  ALL_DAY
+}
+
+model Pet {
+  id    String    @id @default(uuid())
+  name  String
+  age   Int
+  breed String
+  size  PetSize[]
+  type  PetType[]
+
+  user   User   @relation(fields: [userId], references: [id])
+  userId String
+}
+
+enum PetSize {
+  SMALL
+  MEDIUM
+  LARGE
+}
+
+enum PetType {
+  DOG
+  CAT
+}
+
+model Booking {
+  id          String        @id @default(uuid())
+  petOwnerId  String
+  petSitterId String
+  petId       String
+  date        DateTime
+  time        TimeSlot
+  status      BookingStatus
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  userId    String
+  paymentId String
+  User      User   @relation(fields: [userId], references: [id])
+
+  @@map("bookings")
+}
+
+enum TimeSlot {
+  MORNING
+  AFTERNOON
+  EVENING
+  ALL_DAY
+}
+
+enum BookingStatus {
+  PENDING
+  CONFIRMED
+  COMPLETED
+  CANCELLED
+}
+
+model Payment {
+  id            String        @id @default(uuid())
+  bookingId     String
+  amount        Int
+  status        PaymentStatus
+  paymentMethod PaymentMethod
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+  User          User[]
+  PetSitter     PetSitter[]
+
+  @@map("payments")
+}
+
+enum PaymentStatus {
+  PENDING
+  COMPLETED
+  FAILED
+}
+
+enum PaymentMethod {
+  PAYPAL
+  CREDIT_CARD
+}
