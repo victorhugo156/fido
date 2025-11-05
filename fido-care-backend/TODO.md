@@ -1,9 +1,20 @@
 # Fido Pet Care Backend Development TODO List
 
+## HOW I am developing this backend?
+I am watching the Rocketseat classes and applying the concepts in my project.
+At first I am applying the concepts using the User Register method, when I finish the all class I will move to the others methods, such as Pet Sitter Register, Pet Register, Booking a service and so on.
+
 ## WHERE I HAVE STOPPED?
-- I have separated the requests into a controller. Now I need
-  to do the HASH of the password.
-- I also need to study What is Service.
+
+- I have finished with "Caso de use e design pattern", now I need to start with tests.
+
+- I need to study What is Service.
+_______________________________________________________________
+
+- [ x] I have applied one of the rules in SOLID principles, which it is the Dependency Inversion. I have done this in case of I need to work with a different repository or Data Base instead of prisma I can easily do it by instantiating a new repository in my use-case. 06/11/25
+
+- [ x] I have separated the requests into a controller. Now I need to do the HASH of the password.
+
 
 ## Initial Setup Phase
 
