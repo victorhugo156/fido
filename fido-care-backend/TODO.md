@@ -6,14 +6,19 @@ At first I am applying the concepts using the User Register method, when I finis
 
 ## WHERE I HAVE STOPPED?
 
-- I have finished with "Caso de use e design pattern", now I need to start with tests.
+- [ x] Today (20/11/25): I have created the test for authentication and get user profile. I also have created a Factory Patter to be in charge of instantiate the repositories and use case so I do not need to be instantiating it every time that I create a new test. I have skipped the class "Caso de uso check-in"because my application does not have such functionality. I need to watch the class "TDD & Mocking".
 
-- I need to study What is Service.
-_______________________________________________________________
+- [ x] Today (12/11/25): I have started with unit test. I have created In Memory Database so I do not need to test using my real Data Base. I have stopped at class "Gerando coverage de testes = DEsign Patterns & Testes"
 
-- [ x] I have applied one of the rules in SOLID principles, which it is the Dependency Inversion. I have done this in case of I need to work with a different repository or Data Base instead of prisma I can easily do it by instantiating a new repository in my use-case. 06/11/25
+- [ x] (06/11/25): I have applied one of the rules in SOLID principles, which it is the Dependency Inversion. I have done this in case of I need to work with a different repository or Data Base instead of prisma I can easily do it by instantiating a new repository in my use-case.
 
 - [ x] I have separated the requests into a controller. Now I need to do the HASH of the password.
+
+
+## TODO
+-[ ] I need to study What is Service.
+
+
 
 
 ## Initial Setup Phase
