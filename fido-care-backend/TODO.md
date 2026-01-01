@@ -6,7 +6,13 @@ At first I am applying the concepts using the User Register method, when I finis
 
 ## WHERE I HAVE STOPPED?
 
-- [ x] Today (20/11/25): I have created the test for authentication and get user profile. I also have created a Factory Patter to be in charge of instantiate the repositories and use case so I do not need to be instantiating it every time that I create a new test. I have skipped the class "Caso de uso check-in"because my application does not have such functionality. I need to watch the class "TDD & Mocking".
+- [ x] Today (01/01/26): I have created the booking  use-case but I need to review it because on the test, the user and pet sitter must be created and at the moment I am creating a hard code, I need to check what is the best way to do this.
+
+- [ x] Today (04/12/25): I have finished the creation of the pet sitter register, apparently the test is working. I need to double check if everything is right because I had pain in my back and I could not double check.
+
+- [ x] Today (27/11/25): I have watched the classes "Validando data check-in, Validandando distancia", I reckon I will need the distance validation when I work with the Booking method to match with the user distance. I also have started to implement the Pet Sitter Registration. I need to double check the business rules to see how it will works, if the user wants to be both or just user or just pet sitter.
+
+- [ x] Today (20/11/25): I have created the test for authentication and get user profile. I also have created a Factory Pattern to be in charge of instantiate the repositories and use case so I do not need to be instantiating it every time that I create a new test. I have skipped the class "Caso de uso check-in"because my application does not have such functionality. I need to watch the class "TDD & Mocking".
 
 - [ x] Today (12/11/25): I have started with unit test. I have created In Memory Database so I do not need to test using my real Data Base. I have stopped at class "Gerando coverage de testes = DEsign Patterns & Testes"
 
